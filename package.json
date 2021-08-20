@@ -1,5 +1,5 @@
 {
-  "name": "validators",
+  "name": "validators-teste-jp",
   "version": "1.0.0",
   "description": "custom validators",
   "main": "dist/index",
@@ -18,7 +18,8 @@
     "@nestjs/common": "^8.0.6",
     "class-validator": "^0.13.1",
     "cpf-cnpj-validator": "^1.0.3",
-    "rxjs": "^7.3.0"
+    "rxjs": "^7.3.0",
+    "typeorm": "^0.2.37"
   },
   "devDependencies": {
     "@types/node": "^16.6.2",
