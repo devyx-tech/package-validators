@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app-package:
+    build: .
+    container_name: app-package
+    tty: true
+    volumes:
+      - .:/node
+    ports:
+      - "3000:3000"
