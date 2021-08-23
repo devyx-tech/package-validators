@@ -13,6 +13,9 @@ let DbUnique = class DbUnique {
     async validate(value, args) {
         const [EntityClass, findCondition = args.property] = args.constraints;
         console.log("conn", typeorm_1.getConnection());
+        const conn = typeorm_1.getConnection();
+        const repo = conn.getRepository(EntityClass);
+        console.log("repo", repo);
         return ((await typeorm_1.getRepository(EntityClass).count({
             where: typeof findCondition === 'function'
                 ? findCondition(args)
