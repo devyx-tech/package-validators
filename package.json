@@ -1,6 +1,6 @@
 {
   "name": "nestjs-validators-devyx",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "custom validators",
   "main": "dist/index",
   "types": "dist/index",
@@ -10,10 +10,11 @@
     "prepublish": "npm run build"
   },
   "keywords": [
-    "validators"
+    "validators",
+	"nestjs"
   ],
   "author": "Devyx",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@nestjs/common": "^8.0.6",
     "class-validator": "^0.13.1",
