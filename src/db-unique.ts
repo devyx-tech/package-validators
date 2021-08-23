@@ -21,10 +21,6 @@ interface UniqueValidationArguments<E> extends ValidationArguments {
 export class DbUnique implements ValidatorConstraintInterface {
   public async validate<E>(value: string, args: UniqueValidationArguments<E>) {
     const [EntityClass, findCondition = args.property] = args.constraints;
-    console.log("conn", getConnection());
-    const conn = getConnection();
-    const repo = conn.getRepository(EntityClass);
-    console.log("repo", repo);
     return (
       (await getRepository(EntityClass).count({
         where:
