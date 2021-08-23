@@ -16,7 +16,7 @@ interface IsActiveArguments<E> extends ValidationArguments {
 export class IsActive implements ValidatorConstraintInterface {
   public async validate<E>(value: string, args: IsActiveArguments<E>) {
     const [EntityClass, findCondition = args.property] = args.constraints;
-    const entity: any = await getRepository(EntityClass).findOneOrFail({
+    const entity: any = await getRepository(EntityClass).findOne({
       where:
         typeof findCondition === 'function'
           ? findCondition(args)
@@ -25,7 +25,7 @@ export class IsActive implements ValidatorConstraintInterface {
             },
     });
 
-    if (entity.hasOwnProperty('is_active')) {
+    if (entity && entity.hasOwnProperty('is_active')) {
       return entity['is_active'];
     }
 

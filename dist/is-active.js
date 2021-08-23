@@ -12,14 +12,14 @@ const typeorm_1 = require("typeorm");
 let IsActive = class IsActive {
     async validate(value, args) {
         const [EntityClass, findCondition = args.property] = args.constraints;
-        const entity = await typeorm_1.getRepository(EntityClass).findOneOrFail({
+        const entity = await typeorm_1.getRepository(EntityClass).findOne({
             where: typeof findCondition === 'function'
                 ? findCondition(args)
                 : {
                     [findCondition || args.property]: value,
                 },
         });
-        if (entity.hasOwnProperty('is_active')) {
+        if (entity && entity.hasOwnProperty('is_active')) {
             return entity['is_active'];
         }
         return true;
