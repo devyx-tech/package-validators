@@ -5,7 +5,7 @@ import {
 } from 'class-validator';
 import {
   EntitySchema,
-  FindConditions,
+  FindConditions, getConnection,
   getRepository,
   ObjectType,
 } from 'typeorm';
@@ -21,6 +21,7 @@ interface UniqueValidationArguments<E> extends ValidationArguments {
 export class DbUnique implements ValidatorConstraintInterface {
   public async validate<E>(value: string, args: UniqueValidationArguments<E>) {
     const [EntityClass, findCondition = args.property] = args.constraints;
+    console.log("conn", getConnection());
     return (
       (await getRepository(EntityClass).count({
         where:

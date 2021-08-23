@@ -12,6 +12,7 @@ const typeorm_1 = require("typeorm");
 let DbUnique = class DbUnique {
     async validate(value, args) {
         const [EntityClass, findCondition = args.property] = args.constraints;
+        console.log("conn", typeorm_1.getConnection());
         return ((await typeorm_1.getRepository(EntityClass).count({
             where: typeof findCondition === 'function'
                 ? findCondition(args)
