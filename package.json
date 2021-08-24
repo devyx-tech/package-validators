@@ -1,6 +1,6 @@
 {
   "name": "nestjs-validators-devyx",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "custom validators",
   "main": "dist/index",
   "types": "dist/index",
