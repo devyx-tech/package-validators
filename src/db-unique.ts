@@ -5,7 +5,7 @@ import {
 } from 'class-validator';
 import {
   EntitySchema,
-  FindConditions, getConnection,
+  FindConditions,
   getRepository,
   ObjectType,
 } from 'typeorm';
